@@ -28,3 +28,9 @@ body {
   word-wrap: break-word;
   white-space: pre-line;
 }
+
+.link {
+  cursor: pointer;
+  color: green;
+  font-size: 3vw;
+}

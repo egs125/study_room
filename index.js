@@ -6,3 +6,7 @@ const toggleClickedItem = e => {
     e.target.classList.toggle('collapsed');
     targetBody.classList.toggle('show');
 };
+
+const onClickLink = () => {
+    location.href = '../index.html';
+}

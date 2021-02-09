@@ -59,10 +59,13 @@
             window.onload = function() {
                 const accordionBtns = document.querySelectorAll('.accordion-header');
                 const runBtns = document.querySelectorAll('.run-btn');
+                const link = document.querySelector('.link');
 
                 accordionBtns.forEach(el => {
                     el.addEventListener('click', toggleClickedItem);
                 });
+
+                link.addEventListener('click', onClickLink);
 
                 runBtns.forEach(el => {
                     el.addEventListener('click', onClickRun);
@@ -72,7 +75,7 @@
     </head>
     <body>
         <div class="container-fluid">
-            <h1 class="display-2">알고리즘</h1>
+            <h1 class="display-2">알고리즘 <span class="display-6 link">Back to Index</span></h1>
 
             <div class="blank"></div>
             
