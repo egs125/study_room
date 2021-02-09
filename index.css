@@ -1,0 +1,30 @@
+body {
+  text-align: center;
+  margin: 3vw;
+}
+
+.blank {
+  height: 1.5vw;
+}
+
+.card {
+  font-size: 2.5vw;
+}
+
+.card:hover {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+.result-area {
+  min-height: 10vw;
+  align-content: center;
+}
+
+.code-area {
+  text-align: left;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
