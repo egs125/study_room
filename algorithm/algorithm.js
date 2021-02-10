@@ -39,3 +39,17 @@ const selection_sort = list => {
 
     return list;
 };
+
+const quick_sort = list => {
+    if ( list.length < 2 ) {
+        return list;
+    } else {
+        const pivot = list[0];
+        const targetList = list.slice(1);
+
+        const smaller = targetList.filter(el => el <= pivot);
+        const bigger = targetList.filter(el => el > pivot);
+
+        return [ ...quick_sort(smaller), pivot, ...quick_sort(bigger)];
+    }
+};

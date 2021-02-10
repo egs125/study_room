@@ -49,6 +49,9 @@
                         result = selection_sort(convertedList);
                         resultText = `정렬 후: ${result}`;
                         break;
+                    case 'qsort':   // 퀵정렬
+                        result = quick_sort(convertedList);
+                        resultText = `정렬 후: ${result}`;
                     default:
                         break;
                 }
@@ -192,6 +195,54 @@
                         </div>
                     </div>
                     <!-- 선택정렬영역 종료 -->
+
+                    <!-- 퀵정렬영역 시작 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button id="qsort_accordion" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#qsort_accordion_body" aria-expanded="true" aria-controls="qsort_accordion_body">
+                            퀵정렬
+                          </button>
+                        </h2>
+                        <div id="qsort_accordion_body" class="accordion-collapse collapse" data-bs-parent="accordionList" aria-labelledby="qsort_accordion_body">
+                          <div class="accordion-body">
+                              <form class="form-floating">
+                                  <input type="text" id="qsort_list" class="form-control" placeholder="배열(ex: 1,3,5,7,9)">
+                                  <label for="qsort_list">배열(ex: 1,3,5,7,9)</label>
+                              </form>
+                              <div class="input-group mb-3 d-flex justify-content-end">
+                                  <button id="qsort" class="run-btn btn btn-outline-secondary" type="button">퀵정렬!</button>
+                              </div>
+                              
+                              <p class="h6 d-flex flex-row">[실행결과]</p>
+                              <div class="container">
+                                  <div id="qsort_result" class="row border bg-light result-area"></div>
+                              </div>
+                              <div class="blank"></div>
+                              <p class="h6 d-flex flex-row">[코드]</p>
+                              <div class="container">
+                                  <div id="qsort_code_area" class="row border bg-light code-area">
+                                      <code>
+                                          const quick_sort = list => {
+                                          &nbsp;&nbsp;if ( list.length < 2 ) {
+                                          &nbsp;&nbsp;&nbsp;&nbsp;return list;
+                                          &nbsp;&nbsp;} else {
+                                          &nbsp;&nbsp;&nbsp;&nbsp;const pivot = list[0];
+                                          &nbsp;&nbsp;&nbsp;&nbsp;const targetList = list.slice(1);
+                                          
+                                          &nbsp;&nbsp;&nbsp;&nbsp;const smaller = targetList.filter(el => el <= pivot);
+                                          &nbsp;&nbsp;&nbsp;&nbsp;const bigger = targetList.filter(el => el > pivot);
+
+                                          &nbsp;&nbsp;&nbsp;&nbsp;return [ ...quick_sort(smaller), pivot, ...quick_sort(bigger) ];
+                                          &nbsp;&nbsp;}
+                                          };
+
+                                      </code>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- 퀵정렬영역 종료 -->
                 </div>
             </div>
             
