@@ -34,3 +34,13 @@ body {
   color: green;
   font-size: 3vw;
 }
+
+.text-align-left {
+  text-align: left;
+}
+
+.detail-area {
+  min-height: 10vw;
+  align-content: center;
+  padding: 1vw;
+}

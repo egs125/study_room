@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="../index.css">
 
         <script type="text/javascript" src="../index.js"></script>
-        <script type="text/javascript" src="./dataStructure.js"></script>
+        <script type="text/javascript" src="./codingTest.js"></script>
 
         <script type="text/javascript">
             // 각 코드 실행 버튼 클릭 이벤트 핸들러
@@ -49,6 +49,9 @@
                         result = selection_sort(convertedList);
                         resultText = `정렬 후: ${result}`;
                         break;
+                    case 'qsort':   // 퀵정렬
+                        result = quick_sort(convertedList);
+                        resultText = `정렬 후: ${result}`;
                     default:
                         break;
                 }
@@ -75,30 +78,29 @@
     </head>
     <body>
         <div class="container-fluid">
-            <h1 class="display-2">자료구조 <span class="display-6 link">Back to Index</span></h1>
+            <h1 class="display-2">응용문제 <span class="display-6 link">Back to Index</span></h1>
 
             <div class="blank"></div>
             
             <div class="container-sm">
                 <div class="accordion" id="accordionList">
 
-                    <!-- 스택영역 시작 -->
+                    <!-- 문제1 시작 -->
                     <div class="accordion-item">
                       <h2 class="accordion-header">
-                        <button id="stack_accordion" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stack_accordion_body" aria-expanded="true" aria-controls="stack_accordion_body">
-                          스택
+                        <button id="bs_accordion" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bs_accordion_body" aria-expanded="true" aria-controls="bs_accordion_body">
+                          1. 완주하지 못한 선수
                         </button>
                       </h2>
-                      <div id="stack_accordion_body" class="accordion-collapse collapse" data-bs-parent="accordionList" aria-labelledby="stack_accordion_body">
+                      <div id="bs_accordion_body" class="accordion-collapse collapse" data-bs-parent="accordionList" aria-labelledby="bs_accordion_body">
                         <div class="accordion-body">
-                            <p class="h6 d-flex flex-row">[특징]</p>
+                            <p class="h6 d-flex flex-row">[문제]</p>
                             <div class="container">
                                 <div class="row border bg-light">
                                     <div class="text-align-left detail-area">
-                                        <ul>
-                                            <li>선형 자료구조</li>
-                                            <li>후입선출</li>
-                                        </ul>
+                                       마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, <br />
+                                       완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요. <br />
+                                       참가자 중에는 동명이인이 있을 수 있습니다.
                                     </div>
                                 </div>
                             </div>
@@ -107,14 +109,35 @@
                             <div class="container">
                                 <div id="stack_code_area" class="row border bg-light code-area">
                                     <code>
-                                        
+                                        const solution = (participant, completion) => {
+                                            &nbsp;&nbsp;participant.find(name => !completion[name]--, completion.map(name => completion[name] = completion[name]|0) + 1);
+                                        };
+
+                                        const solution = (participant, completion) => {
+                                            &nbsp;&nbsp;completion.map(name => completion[name] = (completion[name]|0)+1);
+                                            &nbsp;&nbsp;return participant.find((name) => !completion[name]--);
+                                        };
+
+                                    </code>
+                                </div>
+                            </div>
+                            <div class="blank"></div>
+                            <p class="h6 d-flex flex-row">[추가해설]</p>
+                            <div class="container">
+                                <div id="stack_code_area" class="row border bg-light code-area">
+                                    <code>
+                                        완주자 배열을 { 이름: 완주자 배열에 등장하는 횟수 } 로 매핑 
+                                        그 맵에 참가자 이름을 하나씩 넣어서 찾아볼 때마다 횟수를 떨어뜨려 횟수가 0인 사람을 출력 
+                                        find 함수 실행 시 콜백 애로우 함수, 맵펑션이라는 두개의 파라미터 전달. 맵펑션이 먼저 실행
+
                                     </code>
                                 </div>
                             </div>
                         </div>
                       </div>
                     </div>
-                    <!-- 스택영역 종료 -->
+                    <!-- 문제1 종료 -->
+                    
                 </div>
             </div>
             
